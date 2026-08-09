@@ -1,0 +1,48 @@
+body {
+    background-color: beige;
+}
+/* Center everything for a clean view */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Main wrapper container */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Shared box styles representing the whiteboard diagram */
+.box {
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* 
+  1. Facebook Box Specs:
+  - Top/Bottom Padding: 8px
+  - Left/Right Padding: 16px
+  - Outer spacing (Margin-bottom): 32px
+*/
+.facebook-box {
+    padding: 8px 16px;
+    margin-bottom: 32px; 
+}
+
+/* 
+  2. Google Box Specs:
+  - Top/Bottom Padding: 12px
+  - Left/Right Padding: 24px
+*/
+.google-box {
+    padding: 12px 24px;
+}
