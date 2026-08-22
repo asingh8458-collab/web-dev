@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3 - Flexbox</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: white;
+            text-align: center;
+        }
+
+        /* Flexbox container for images with 12px gap and 18px gap below */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px; 
+            margin-bottom: 18px; 
+        }
+
+        .image-container img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        /* Title: bold, h2, 36px */
+        h2 {
+            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Description: 16px, center-aligned */
+        p {
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Two images side by side with a 12px gap -->
+        <div class="image-container">
+            <img src="./images/flower.avif" alt="Image 1">
+            <img src="./images/flower.avif" alt="Image 2">
+        </div>
+        <h2>Michael is Great</h2>
+        <p>The michael is...</p>
+    </div>
+</body>
+</html>
