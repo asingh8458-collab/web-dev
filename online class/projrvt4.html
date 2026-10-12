@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aakrantee Singh - Personal Biography</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modern Enhancements & Hover Effects */
+        :root {
+            --primary-color: #6c5ce7;
+            --accent-color: #a29bfe;
+            --bg-color: #f9f9fc;
+            --card-bg: #ffffff;
+            --text-color: #2d3436;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        header, nav, main, footer {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Section Visibility */
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hover Cards Effect */
+        .card-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.15);
+        }
+
+        /* Image Hover Zoom Container */
+        .img-hover-container {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .img-hover-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .img-hover-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gallery Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --bg-color: #1e1e2e;
+            --card-bg: #2d2d3f;
+            --text-color: #f1f1f1;
+        }
+
+        .dark-mode-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .dark-mode-button:hover {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <p>Personal Biography</p>
+        
+        <!-- Canva Embed Banner -->
+        <div style="position: relative; width: 100%; height: 0; padding-top: 50.0000%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+            src="https://www.canva.com/design/DAHXVk-ivuA/Ug-hg22CWMX8HbAF6aMHqQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+          </iframe>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" data-target="biography" class="nav-link active">Biography</a></li>
+            <li><a href="#" data-target="family" class="nav-link">Family</a></li>
+            <li><a href="#" data-target="gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#" data-target="contact" class="nav-link">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- BIOGRAPHY SECTION -->
+        <section id="biography" class="active">
+            <div class="card-box">
+                <h2>Biography</h2>
+                <p>Hi, I'm Aakrantee Singh, born and raised in Nepal, with an academic and professional background that spans human psychology and modern technology. My original path began in the field of mental health, where I dedicated myself to studying psychology and ultimately earned my license as a professional psychosocial counselor. Working closely with human emotions, behavior, and mental well-being gave me a deep sense of empathy and purpose, but as time went on, my natural curiosity urged me to explore completely unfamiliar horizons. Driven by a desire to step out of my comfort zone and challenge myself in new ways, I decided to take a bold leap into the world of technology by enrolling in a Bachelor of Science in Information Technology (BSIT) program. Blending the analytical rigor of counseling with the logic of software development has given me a truly unique perspective on how human behavior interacts with technical systems.</p>
+            </div>
+            
+            <div class="card-box">
+                <h3>My Journey & Motivation</h3>
+                <p>Transitioning into computer science from a non-technical background was certainly not a walk in the park, as I had never previously envisioned myself working with computers or writing lines of code. There are plenty of overwhelming days when complex programming concepts, abstract algorithms, and sudden technical obstacles make me feel frustrated to the point where I seriously consider giving up or switching back to my familiar path. However, every time those moments of self-doubt kick in, I make a conscious choice to motivate myself, remember how far I have come, and reignite the innate curiosity that pushed me to start this degree in the first place.</p>
+            </div>
+
+            <div class="card-box">
+                <h3>Hobbies and Interests</h3>
+                <p>Beyond my academic endeavors in IT and counseling, expression through movement has been an integral part of my identity since early childhood, as I have always been deeply passionate about dancing and actively participating in various dance competitions and stage performances. Over time, I have also developed a strong love for visual art and creative crafting, finding immense joy and peace in sketching and painting whenever I need a creative outlet from my studies.</p>
+            </div>
+
+            <div class="card-box">
+                <h3>Personal Values and Beliefs</h3>
+                <p>I firmly believe that no learning is ever wasted, and that taking bold risks outside your comfort zone is the true foundation of personal growth. Transitioning from a licensed psychosocial counselor to an aspiring IT professional has taught me that resilience, self-talk, and open-mindedness can help anyone conquer intimidating new subjects, regardless of where they originally started.</p>
+            </div>
+
+            <div class="card-box">
+                <h3>What Makes Me Unique</h3>
+                <p>What truly sets me apart is my rare combination of deep psychological empathy and technical curiosity, allowing me to approach problem-solving with both emotional intelligence and structured logic. My journey demonstrates that you do not have to limit yourself to just one domain—you can be a compassionate counselor, a creative dancer, an artist, and a dedicated tech developer all at once.</p>
+            </div>
+
+            <div class="card-box">
+                <h3>Goals and Aspirations</h3>
+                <p>Looking toward the future, my goal is to successfully complete my BSIT degree while actively searching for innovative ways to bridge the gap between mental health support and emerging technology. Ultimately, I hope to utilize my background in psychosocial counseling alongside software engineering to design empathetic digital platforms, while continuing to nurture my lifelong artistic passions for dance and art.</p>
+            </div>
+        </section>
+
+        <!-- FAMILY SECTION -->
+        <section id="family">
+            <div class="card-box">
+                <h2>Family</h2>
+                <h3>My Roots</h3>
+                <p>Growing up in Nepal surrounded by strong familial values and continuous support gave me the confidence to make drastic career changes and pursue my true interests without fear. My family has been my constant anchor, encouraging me both when I pursued my psychology license and when I decided to pivot toward computer science.</p>
+                
+                <!-- Family Photo with Zoom Hover -->
+                <a href="https://ibb.co/1JMjHjdS" target="_blank" rel="noopener" class="img-hover-container">
+                    <img src="https://i.ibb.co/k6JvYv9d/family.jpg" alt="Family Photo">
+                </a>
+            </div>
+
+            <div class="card-box">
+                <h3>Values and Lessons</h3>
+                <p>The core values instilled in me by my family emphasize respect, unwavering determination, and empathy toward everyone I meet. These foundational principles guide my work when counseling clients, help me stay grounded during late-night coding sessions, and remind me to remain humble as I learn new skills.</p>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery">
+            <div class="card-box">
+                <h2>Gallery</h2>
+                <p>Here are some visual highlights capturing my background in counseling, my passion for dance and art, and my ongoing journey through my BSIT degree:</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Dance Photo -->
+                <a href="https://ibb.co/BV0M9jvm" target="_blank" rel="noopener" class="img-hover-container">
+                    <img src="https://i.ibb.co/nsxJFf4T/Nepal-Dance-8.webp" alt="Dance Performance">
+                </a>
+                
+                <!-- Counselor Photo -->
+                <a href="https://imgbb.com/" target="_blank" rel="noopener" class="img-hover-container">
+                    <img src="https://i.ibb.co/gbDfTSjd/counselor.webp" alt="Psychosocial Counseling Work">
+                </a>
+
+                <!-- Art Photo -->
+                <a href="https://imgbb.com/" target="_blank" rel="noopener" class="img-hover-container">
+                    <img src="https://i.ibb.co/3mnnLVh1/art.webp" alt="Art Projects">
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="card-box">
+                <h2>Contact Me</h2>
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p><strong>Name:</strong> Aakrantee Singh</p>
+                    <p><strong>Title:</strong> Licensed Psychosocial Counselor & BSIT Student</p>
+                </div>
+                <br>
+                <form>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc;"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc;"><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc; height: 100px;"></textarea><br>
+                    <button type="submit" style="padding: 10px 25px; background: var(--primary-color); color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: bold;">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Aakrantee Singh. All Rights Reserved.</p>
+    </footer>
+
+    <button class="dark-mode-button" id="toggleDarkMode">🌙 Toggle Dark Mode</button>
+
+    <script>
+        // Tab switching logic
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('data-target');
+
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+
+                link.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeBtn = document.getElementById('toggleDarkMode');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
