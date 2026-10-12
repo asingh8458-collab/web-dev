@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aakrantee Singh - Personal Portfolio & Biography</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font (Inter & Outfit) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        sunset: {
+                            coral: '#FF6B6B',
+                            peach: '#FF8E53',
+                            pink: '#FF4081',
+                            purple: '#7C4DFF',
+                            indigo: '#3F51B5',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'gradient-x': 'gradientX 15s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6', filter: 'drop-shadow(0 0 15px rgba(255,107,107,0.4))' },
+                            '50%': { opacity: '1', filter: 'drop-shadow(0 0 25px rgba(124,77,255,0.8))' },
+                        },
+                        gradientX: {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(124, 77, 255, 0.15);
+        }
+
+        .dark .glass-card {
+            background: rgba(23, 20, 41, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .dark .glass-nav {
+            background: rgba(15, 13, 29, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF4081 50%, #7C4DFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #FF6B6B, #FF8E53, #FF4081, #7C4DFF, #3F51B5);
+            background-size: 400% 400%;
+            animation: gradientX 12s ease infinite;
+        }
+
+        .img-glow {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .img-glow:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 40px -15px rgba(255, 64, 129, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#0b0914] text-slate-800 dark:text-slate-100 font-sans transition-colors duration-500 min-h-screen relative overflow-x-hidden">
+
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-pink-500/30 to-rose-400/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute top-1/3 -right-32 w-96 h-96 bg-gradient-to-br from-purple-600/25 to-indigo-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+
+        <header class="text-center my-6 sm:my-10">
+            <!-- Top Controls Badge -->
+            <div class="flex justify-between items-center mb-6">
+                <span class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-500/20 text-pink-600 dark:text-pink-400 flex items-center gap-1.5 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                    🇳🇵 Nepal &bull; Counselor to Tech Developer
+                </span>
+
+                <div class="flex items-center gap-2">
+                    <!-- Celebration Button -->
+                    <button id="confettiBtn" onclick="triggerConfetti()" title="Celebrate!" class="p-2.5 rounded-full glass-card hover:bg-pink-500/10 text-pink-500 transition-all transform hover:scale-110 active:scale-95 shadow-md">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Dark/Light Mode Toggle -->
+                    <button id="themeToggle" class="p-2.5 rounded-full glass-card hover:bg-purple-500/10 text-purple-600 dark:text-amber-400 transition-all transform hover:scale-110 active:scale-95 shadow-md">
+                        <i data-lucide="moon" id="themeIcon" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Name Title -->
+            <h1 class="text-4xl sm:text-6xl font-extrabold font-display tracking-tight mb-3">
+                <span class="gradient-text">Aakrantee Singh</span>
+            </h1>
+            
+            <p class="text-base sm:text-xl font-medium text-slate-600 dark:text-slate-300 max-w-2xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+                <span class="inline-flex items-center gap-1 text-pink-600 dark:text-pink-400 font-semibold"><i data-lucide="heart-handshake" class="w-4 h-4"></i> Psychosocial Counselor</span>
+                <span class="text-slate-400">&bull;</span>
+                <span class="inline-flex items-center gap-1 text-purple-600 dark:text-purple-400 font-semibold"><i data-lucide="code-2" class="w-4 h-4"></i> BSIT Developer</span>
+                <span class="text-slate-400">&bull;</span>
+                <span class="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-semibold"><i data-lucide="palette" class="w-4 h-4"></i> Artist & Dancer</span>
+            </p>
+
+            <!-- Canva Embed Banner inside Glowing Glass Card -->
+            <div class="mt-8 relative group">
+                <div class="absolute -inset-1 gradient-bg rounded-2xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl overflow-hidden p-2 sm:p-3 shadow-2xl">
+                    <div class="relative w-full overflow-hidden rounded-xl" style="padding-top: 45%;">
+                        <iframe loading="lazy" class="absolute top-0 left-0 w-full h-full border-0 rounded-xl"
+                            src="https://www.canva.com/design/DAHXVk-ivuA/Ug-hg22CWMX8HbAF6aMHqQ/view?embed" 
+                            allowfullscreen="allowfullscreen" allow="fullscreen">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="sticky top-4 z-40 my-8">
+            <div class="glass-nav rounded-2xl p-1.5 sm:p-2 max-w-2xl mx-auto shadow-xl flex justify-between items-center gap-1 sm:gap-2">
+                <button data-target="biography" class="nav-tab active flex-1 py-2.5 px-3 sm:px-5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                    <span>Biography</span>
+                </button>
+                <button data-target="family" class="nav-tab flex-1 py-2.5 px-3 sm:px-5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span>Family</span>
+                </button>
+                <button data-target="gallery" class="nav-tab flex-1 py-2.5 px-3 sm:px-5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
+                    <i data-lucide="image" class="w-4 h-4"></i>
+                    <span>Gallery</span>
+                </button>
+                <button data-target="contact" class="nav-tab flex-1 py-2.5 px-3 sm:px-5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Contact</span>
+                </button>
+            </div>
+        </nav>
+
+        <main>
+            <!-- 1. BIOGRAPHY TAB -->
+            <section id="biography" class="tab-content active space-y-6">
+
+                <!-- Interactive Skills/Interests Pill Tags -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-pink-500 dark:text-pink-400 mb-3 flex items-center gap-2">
+                        <i data-lucide="sparkle" class="w-4 h-4"></i> Core Domains & Passions
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-pink-500/10 to-rose-500/10 border border-pink-500/20 text-pink-600 dark:text-pink-300 hover:scale-105 transition-transform cursor-default">🧠 Psychosocial Counseling</span>
+                        <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 hover:scale-105 transition-transform cursor-default">💻 BSIT & Software Engineering</span>
+                        <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-300 hover:scale-105 transition-transform cursor-default">💃 Stage Dance & Movement</span>
+                        <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-300 hover:scale-105 transition-transform cursor-default">🎨 Visual Sketching & Painting</span>
+                        <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-sky-500/10 to-blue-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-300 hover:scale-105 transition-transform cursor-default">🇳🇵 Proud Nepali Heritage</span>
+                        <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-300 hover:scale-105 transition-transform cursor-default">💡 Empathetic Problem Solving</span>
+                    </div>
+                </div>
+
+                <!-- Bio Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Bio Main Card -->
+                    <div class="glass-card rounded-2xl p-6 md:col-span-2 relative group hover:border-pink-500/40 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 rounded-xl bg-pink-500/10 text-pink-500">
+                                <i data-lucide="compass" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold font-display">Biography & Unique Path</h2>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Bridging Human Psychology & Tech</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Hi, I'm <strong>Aakrantee Singh</strong>, born and raised in Nepal, with an academic and professional background that uniquely bridges human psychology and modern technology. My original path began in mental health, earning my license as a professional psychosocial counselor. Working closely with human emotions gave me deep empathy, but my natural curiosity urged me to explore completely unfamiliar horizons. Driven to step out of my comfort zone, I took a bold leap into technology by enrolling in a Bachelor of Science in Information Technology (BSIT) program. Blending counseling rigor with software logic provides me a unique lens on human-computer interaction.
+                        </p>
+                    </div>
+
+                    <!-- Journey & Motivation -->
+                    <div class="glass-card rounded-2xl p-6 hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-3 rounded-xl bg-purple-500/10 text-purple-500">
+                                    <i data-lucide="zap" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-lg font-bold font-display">Journey & Motivation</h3>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                                Transitioning into computer science from a non-technical background was certainly not a walk in the park. Facing abstract algorithms and coding obstacles can be daunting. However, whenever self-doubt kicks in, I make a conscious choice to motivate myself, remember how far I have come, and reignite the innate curiosity that pushed me to start this degree.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-200/50 dark:border-slate-800 text-xs text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i> Resilience Over Comfort
+                        </div>
+                    </div>
+
+                    <!-- Hobbies & Art -->
+                    <div class="glass-card rounded-2xl p-6 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-3 rounded-xl bg-amber-500/10 text-amber-500">
+                                    <i data-lucide="music" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-lg font-bold font-display">Dance & Visual Art</h3>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                                Beyond IT and counseling, expression through movement has been an integral part of my identity since childhood through stage dance performances and competitions. I also hold a deep love for visual art, finding peace and clarity in sketching and painting whenever I need a creative break.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-200/50 dark:border-slate-800 text-xs text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
+                            <i data-lucide="heart" class="w-4 h-4"></i> Creative Outlets
+                        </div>
+                    </div>
+
+                    <!-- Values & Beliefs -->
+                    <div class="glass-card rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-500">
+                                <i data-lucide="award" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold font-display">Personal Values</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                            I firmly believe that no learning is ever wasted, and taking bold risks outside your comfort zone is the true foundation of personal growth. Self-talk and open-mindedness can empower anyone to conquer intimidating new domains.
+                        </p>
+                    </div>
+
+                    <!-- Future Goals -->
+                    <div class="glass-card rounded-2xl p-6 hover:border-indigo-500/40 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-500">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold font-display">Goals & Aspirations</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                            My goal is to successfully complete my BSIT degree while innovating ways to bridge mental health support with emerging software technology—building empathetic digital platforms that enhance lives.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. FAMILY TAB -->
+            <section id="family" class="tab-content space-y-6">
+                <div class="glass-card rounded-3xl p-6 sm:p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-gradient-to-tr from-pink-500 to-rose-400 text-white shadow-lg">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-display">Family & Nepalese Roots</h2>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">My Pillars of Strength</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-4 text-slate-600 dark:text-slate-300">
+                            <p class="leading-relaxed text-sm sm:text-base">
+                                Growing up in Nepal surrounded by strong familial values and continuous support gave me the confidence to make drastic career changes and pursue my true interests without fear. My family has been my constant anchor throughout every step of my journey.
+                            </p>
+                            <p class="leading-relaxed text-sm sm:text-base">
+                                Whether I was pursuing my psychosocial psychology license or deciding to pivot toward computer science, their unwavering belief in me turned challenges into stepping stones.
+                            </p>
+                            
+                            <div class="p-4 rounded-xl bg-pink-500/5 border border-pink-500/20 text-xs sm:text-sm text-pink-700 dark:text-pink-300 flex items-start gap-3">
+                                <i data-lucide="quote" class="w-5 h-5 flex-shrink-0 text-pink-500 mt-0.5"></i>
+                                <span>"The core values instilled in me by my family emphasize respect, determination, and empathy—guiding my counseling work and grounding me during late-night coding sessions."</span>
+                            </div>
+                        </div>
+
+                        <!-- Image with Hover Glow Container -->
+                        <div class="lg:col-span-5">
+                            <div class="relative group">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500"></div>
+                                <a href="https://ibb.co/1JMjHjdS" target="_blank" rel="noopener" class="relative block rounded-2xl overflow-hidden img-glow">
+                                    <img src="https://i.ibb.co/k6JvYv9d/family.jpg" alt="Family Photo" class="w-full h-72 object-cover rounded-2xl">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+                                        <span class="text-xs text-white/90 font-medium flex items-center gap-1.5">
+                                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Family Photo in Nepal
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. GALLERY TAB -->
+            <section id="gallery" class="tab-content space-y-6">
+                <div class="text-center max-w-xl mx-auto mb-6">
+                    <h2 class="text-2xl font-bold font-display gradient-text">Visual Showcase</h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        Highlights capturing counseling, stage dance performances, and creative artwork.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Dance Card -->
+                    <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group hover:border-pink-500/50 transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-xl mb-4">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-400 opacity-0 group-hover:opacity-30 blur transition duration-300"></div>
+                            <a href="https://ibb.co/BV0M9jvm" target="_blank" rel="noopener" class="block img-glow">
+                                <img src="https://i.ibb.co/nsxJFf4T/Nepal-Dance-8.webp" alt="Dance Performance" class="w-full h-64 object-cover rounded-xl">
+                            </a>
+                            <span class="absolute top-3 left-3 bg-pink-600/90 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-md">
+                                <i data-lucide="sparkles" class="w-3 h-3"></i> Dance Performance
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base font-display mb-1">Stage Dance & Artistry</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Expression through movement and stage performance in Nepal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Counselor Card -->
+                    <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group hover:border-purple-500/50 transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-xl mb-4">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-30 blur transition duration-300"></div>
+                            <a href="https://imgbb.com/" target="_blank" rel="noopener" class="block img-glow">
+                                <img src="https://i.ibb.co/gbDfTSjd/counselor.webp" alt="Psychosocial Counseling Work" class="w-full h-64 object-cover rounded-xl">
+                            </a>
+                            <span class="absolute top-3 left-3 bg-purple-600/90 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-md">
+                                <i data-lucide="heart-handshake" class="w-3 h-3"></i> Counseling Work
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base font-display mb-1">Psychosocial Counseling</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Empathetic work supporting mental health & human well-being.</p>
+                        </div>
+                    </div>
+
+                    <!-- Art Card -->
+                    <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group hover:border-amber-500/50 transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-xl mb-4">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-orange-500 opacity-0 group-hover:opacity-30 blur transition duration-300"></div>
+                            <a href="https://imgbb.com/" target="_blank" rel="noopener" class="block img-glow">
+                                <img src="https://i.ibb.co/3mnnLVh1/art.webp" alt="Art Projects" class="w-full h-64 object-cover rounded-xl">
+                            </a>
+                            <span class="absolute top-3 left-3 bg-amber-600/90 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-md">
+                                <i data-lucide="palette" class="w-3 h-3"></i> Sketching & Paintings
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base font-display mb-1">Visual Art & Crafting</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Creative painting and sketching for mindfulness and peace.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 4. CONTACT TAB -->
+            <section id="contact" class="tab-content space-y-6">
+                <div class="max-w-2xl mx-auto glass-card rounded-3xl p-6 sm:p-8 relative">
+                    <div class="text-center mb-8">
+                        <div class="w-12 h-12 rounded-2xl gradient-bg text-white flex items-center justify-center mx-auto mb-3 shadow-lg">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold font-display">Get In Touch</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                            Have a project idea, questions about psychosocial counseling, or tech collaboration? Reach out below!
+                        </p>
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Your Name</label>
+                            <input type="text" id="name" required placeholder="e.g. Priyanshu Sharma" class="w-full px-4 py-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all text-sm">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Email Address</label>
+                            <input type="email" id="email" required placeholder="your.email@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all text-sm">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Message</label>
+                            <textarea id="message" rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl gradient-bg text-white font-bold text-sm shadow-lg hover:shadow-pink-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i> Send Message
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box -->
+                    <div id="formSuccess" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-sm text-center font-medium">
+                        ✨ Thank you! Your message has been recorded.
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800 text-center">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Or connect on social platforms:</p>
+                        <div class="flex justify-center items-center gap-3 flex-wrap">
+                            <a href="#" class="px-4 py-2 rounded-xl text-xs font-semibold bg-sky-500/10 text-sky-600 border border-sky-500/20 hover:bg-sky-500 hover:text-white transition-all flex items-center gap-1.5">
+                                <i data-lucide="twitter" class="w-3.5 h-3.5"></i> Twitter
+                            </a>
+                            <a href="#" class="px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600/10 text-blue-600 border border-blue-600/20 hover:bg-blue-600 hover:text-white transition-all flex items-center gap-1.5">
+                                <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+                            </a>
+                            <a href="#" class="px-4 py-2 rounded-xl text-xs font-semibold bg-pink-600/10 text-pink-600 border border-pink-600/20 hover:bg-pink-600 hover:text-white transition-all flex items-center gap-1.5">
+                                <i data-lucide="instagram" class="w-3.5 h-3.5"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-16 text-center py-6 border-t border-slate-200/50 dark:border-slate-800/80 text-xs text-slate-500 dark:text-slate-400 space-y-2">
+            <p>&copy; 2026 Aakrantee Singh. All Rights Reserved.</p>
+            <div class="flex justify-center gap-4 text-xs">
+                <a href="#" class="hover:text-pink-500 transition-colors">Privacy Policy</a>
+                <span>&bull;</span>
+                <a href="#" class="hover:text-pink-500 transition-colors">Terms of Service</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dark/Light Theme Switching
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            lucide.createIcons();
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = !document.documentElement.classList.contains('dark');
+            setTheme(isDark);
+        });
+
+        // Tab Switching Logic
+        const tabs = document.querySelectorAll('.nav-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-target');
+
+                // Activate selected tab button styling
+                tabs.forEach(t => {
+                    t.classList.remove('active', 'gradient-bg', 'text-white', 'shadow-md');
+                    t.classList.add('text-slate-700', 'dark:text-slate-200');
+                });
+
+                tab.classList.add('active', 'gradient-bg', 'text-white', 'shadow-md');
+                tab.classList.remove('text-slate-700', 'dark:text-slate-200');
+
+                // Switch section visibility
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === target) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Set initial active tab style
+        document.querySelector('.nav-tab.active').classList.add('gradient-bg', 'text-white', 'shadow-md');
+
+        // Confetti Celebration
+        function triggerConfetti() {
+            confetti({
+                particleCount: 120,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#FF6B6B', '#FF4081', '#7C4DFF', '#3F51B5', '#FF8E53']
+            });
+        }
+
+        // Contact Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successBox = document.getElementById('formSuccess');
+            successBox.classList.remove('hidden');
+            triggerConfetti();
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
